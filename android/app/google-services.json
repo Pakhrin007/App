@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "556960531297",
+    "project_id": "firee-62e5c",
+    "storage_bucket": "firee-62e5c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556960531297:android:f329f487f87373e02fbb20",
+        "android_client_info": {
+          "package_name": "com.example.helloworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHAxfdttZQNbQt0PPeShp-q-73r1tc-Cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
