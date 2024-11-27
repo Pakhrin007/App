@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Loginpage extends StatefulWidget {
@@ -8,6 +9,14 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  Future SignIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text, password: _passwordController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,25 +27,25 @@ class _LoginpageState extends State<Loginpage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.phone_android,
                   size: 100,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 75,
                 ),
-                Text(
+                const Text(
                   "Hello Again",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Welcome back, you\'ve been missed !",
+                const Text(
+                  "Welcome back, you've been missed !",
                   style: TextStyle(fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Padding(
@@ -49,7 +58,8 @@ class _LoginpageState extends State<Loginpage> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: TextField(
-                        decoration: InputDecoration(
+                        controller: _emailController,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Email",
                         ),
@@ -57,7 +67,7 @@ class _LoginpageState extends State<Loginpage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
@@ -68,8 +78,9 @@ class _LoginpageState extends State<Loginpage> {
                         border: Border.all(color: Colors.white),
                         borderRadius: BorderRadius.circular(25)),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.only(left: 10),
                       child: TextField(
+                        controller: _passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -79,32 +90,35 @@ class _LoginpageState extends State<Loginpage> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 17,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Container(
-                    padding: EdgeInsets.all(17),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Sign In",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18),
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: GestureDetector(
+                    onTap: SignIn,
+                    child: Container(
+                      padding: const EdgeInsets.all(17),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          "Sign In",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18),
+                        ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
